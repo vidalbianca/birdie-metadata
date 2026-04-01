@@ -2,7 +2,7 @@
 
 Assistente de IA para construção de metadados da Birdie (monitoria de qualidade via IA).
 
-Abra este projeto no **Cursor** e inicie uma conversa com:
+Abra este projeto no **Cursor** ou **Claude Code**  e inicie uma conversa com:
 > "quero criar metadados"
 
 O assistente irá guiar você por todo o processo: leitura dos critérios, identificação de tabelas ETL, construção e importação dos notebooks no Databricks.
