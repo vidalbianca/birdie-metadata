@@ -41,7 +41,7 @@ Pergunte ao usuário (use a ferramenta AskQuestion quando disponível):
 2. **Fonte dos critérios**: Os critérios estão em Google Docs (compartilhe o link da planilha ou dos Docs) ou em arquivos `.txt` locais?
 3. **Notebook existente**: É para criar um notebook novo ou adicionar critérios a um notebook existente?
 4. **Workspace Databricks**: Qual o caminho do seu workspace? (ex: `/Workspace/Users/nome@nubank.com.br/birdie/`)
-5. **Profile CLI**: Qual o profile do Databricks CLI? (ex: `ops_analytics`)
+5. **Profile CLI**: Qual profile do Databricks CLI você usa? Se não souber, posso verificar os profiles configurados na sua máquina com `databricks auth profiles`.
 
 ### Passo 3 — Leitura dos critérios
 Após receber as respostas:
