@@ -1,11 +1,18 @@
 # Birdie Metadata Builder
 
-Assistente de IA para construção de metadados da Birdie (monitoria de qualidade via IA).
+Assistente de IA para construção de metadados da Birdie (monitoria de qualidade via IA). Guia você por todo o processo: leitura dos critérios, identificação de tabelas ETL, construção e importação dos notebooks no Databricks.
 
-Abra este projeto no **Cursor** ou **Claude Code**  e inicie uma conversa com:
+---
+
+## Primeiro passo: clonar o repositório
+
+```bash
+git clone git@github.com:vidalbianca/birdie-metadata.git
+cd birdie-metadata
+```
+
+Abra o diretório no **Cursor** ou **Claude Code** e inicie uma conversa com:
 > "quero criar metadados"
-
-O assistente irá guiar você por todo o processo: leitura dos critérios, identificação de tabelas ETL, construção e importação dos notebooks no Databricks.
 
 ---
 
@@ -35,7 +42,7 @@ databricks --version
 Permite ler critérios direto do Google Docs, sem precisar baixar arquivos.
 
 **Setup:**
-1. Obtenha o servidor MCP de Google Workspace
+1. Obtenha o servidor MCP de Google Workspace (peça ao time de Quality)
 2. Adicione ao seu `~/.cursor/mcp.json`:
 ```json
 {
@@ -129,4 +136,4 @@ birdie-metadata/
 
 ## Dúvidas?
 
-Fale com o time de Metadados.
+Fale com o time de Quality Analytics.
