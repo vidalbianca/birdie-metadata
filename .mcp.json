@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "google-workspace": {
+      "command": "node",
+      "args": [
+        "/ALTERE/PARA/SEU/CAMINHO/workspace-server/dist/index.js"
+      ],
+      "env": {}
+    }
+  }
+}

@@ -58,16 +58,27 @@ Permite ler critérios direto do Google Docs, sem precisar baixar arquivos.
 
 ## Como usar
 
+### No Cursor
+
 1. Abra este diretório no Cursor
 2. Inicie uma nova conversa (Cmd+L ou Cmd+I)
 3. Diga: **"quero criar metadados"**
-4. O assistente irá:
-   - Verificar se seus pré-requisitos estão ok
-   - Perguntar qual squad e onde estão os critérios
-   - Ler os critérios (Google Docs ou `.txt`)
-   - Propor os metadados para sua validação
-   - Construir o notebook Scala/Spark
-   - Importar no seu workspace do Databricks
+
+### No Claude Code
+
+1. Abra o terminal neste diretório
+2. Edite o `.mcp.json` com o caminho correto do seu workspace-server (se for usar Google Docs)
+3. Execute: `claude`
+4. Diga: **"quero criar metadados"**
+
+### O que o assistente faz
+
+- Verifica se seus pré-requisitos estão ok
+- Pergunta qual squad e onde estão os critérios
+- Lê os critérios (Google Docs ou `.txt`)
+- Propõe os metadados para sua validação
+- Constrói o notebook Scala/Spark
+- Importa no seu workspace do Databricks
 
 ---
 
@@ -108,7 +119,9 @@ git pull
 
 ```
 birdie-metadata/
-  .cursor/rules/birdie-metadata.mdc   ← Base de conhecimento do assistente
+  .cursor/rules/birdie-metadata.mdc   ← Base de conhecimento (Cursor)
+  CLAUDE.md                            ← Base de conhecimento (Claude Code)
+  .mcp.json                            ← Config MCP Google Workspace (Claude Code)
   README.md                            ← Este arquivo
 ```
 
