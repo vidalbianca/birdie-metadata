@@ -71,6 +71,39 @@ Permite ler critérios direto do Google Docs, sem precisar baixar arquivos.
 
 ---
 
+## Atualizando a base de conhecimento
+
+O arquivo `.cursor/rules/birdie-metadata.mdc` é a base de conhecimento do assistente. Ele contém: como ler critérios, padrão dos notebooks, catálogo de tabelas ETL, erros comuns, etc.
+
+**Quando atualizar?**
+- Nova squad validada (adicionar tabelas e metadados ao catálogo)
+- Erro novo descoberto durante validação
+- Mudança de padrão ou convenção
+- Nova tabela ETL descoberta
+
+**Como atualizar?**
+
+Opção 1 — Pedir ao assistente durante a conversa:
+> "adiciona no Rule que a tabela X serve para Y"
+
+Opção 2 — Editar o arquivo `.cursor/rules/birdie-metadata.mdc` diretamente no Cursor.
+
+**Importante: sempre compartilhe a atualização com o time depois de editar.**
+
+```bash
+git add . && git commit -m "atualiza Rule: <descreva o que mudou>" && git push
+```
+
+Ou peça ao assistente: *"faz commit e push das alterações no Rule"*.
+
+**Antes de começar a trabalhar**, garanta que você tem a versão mais recente:
+
+```bash
+git pull
+```
+
+---
+
 ## Estrutura
 
 ```
