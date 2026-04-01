@@ -35,7 +35,7 @@ databricks --version
 Permite ler critérios direto do Google Docs, sem precisar baixar arquivos.
 
 **Setup:**
-1. Obtenha o servidor MCP de Google Workspace (peça ao time de Quality)
+1. Obtenha o servidor MCP de Google Workspace
 2. Adicione ao seu `~/.cursor/mcp.json`:
 ```json
 {
@@ -129,4 +129,4 @@ birdie-metadata/
 
 ## Dúvidas?
 
-Fale com o time de Quality Analytics.
+Fale com o time de Metadados.
