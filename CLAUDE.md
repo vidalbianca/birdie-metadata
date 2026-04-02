@@ -181,6 +181,14 @@ Metadados devem respeitar a data do ticket. Se o cliente não era elegível no m
 8. **AJIS** — Já existe na Onda 1, não recriar
 9. **Seção Save** — NÃO incluir seção de salvar nos notebooks. Será adicionada conforme necessidade separadamente
 
+## Sincronização entre Cursor e Claude Code
+
+A base de conhecimento existe em **dois arquivos** neste repositório:
+- `.cursor/rules/birdie-metadata.mdc` → Cursor
+- `CLAUDE.md` → Claude Code
+
+**Regra:** Toda alteração na base de conhecimento DEVE ser refletida nos dois arquivos, a menos que seja uma alteração específica para apenas uma das ferramentas (ex: frontmatter `.mdc` que só existe no Cursor). Após alterar, fazer commit e push para o repositório.
+
 ## Databricks CLI
 
 Usar workspace e profile coletados no onboarding (Passo 2).
