@@ -92,7 +92,29 @@ Cada notebook segue esta estrutura fixa:
 4. Metadata         — Uma seção por critério com DataFrames de origem
 5. Final Join       — LEFT JOINs encadeados em interaction_with_stop_time
 6. Validação        — Row counts, samples, distribuições
+7. Amostra + De/Para — Extração para validação da squad
 ```
+
+### Seção 7 — Amostra e De/Para (obrigatório em todo notebook)
+
+Após a validação, incluir **sempre** duas células finais:
+
+**Célula 1 — Amostra para validação da squad:**
+- Filtrar por `selected_squad` da squad (ex: `lower($"selected_squad").contains("nucel")`)
+- Filtrar atendimentos recentes (ano corrente ou anterior)
+- Selecionar colunas de contexto (`source_id`, `subject_id`, `selected_squad`, `selected_reason`, `ticket_local_start_time`, `ticket_local_stop_time`) + todos os metadados da squad
+- Ordenar por `ticket_local_start_time` desc
+- Limitar a 500 linhas
+- Usar `display()` para que o usuário possa baixar como CSV no Databricks
+
+**Célula 2 — De/Para (markdown):**
+Tabela com mapeamento completo de cada metadado:
+
+```
+| Metadado | Tipo | Critério | Descrição | Valores possíveis |
+```
+
+Cada linha deve conter: nome do campo, tipo (String/Boolean/Date/Timestamp/Integer/Float), nome do critério associado, descrição do que o campo representa e como a IA vai usá-lo, e todos os valores possíveis (incluindo null).
 
 ### Regras críticas do join
 
