@@ -92,7 +92,6 @@ Cada notebook segue esta estrutura fixa:
 4. Metadata         — Uma seção por critério com DataFrames de origem
 5. Final Join       — LEFT JOINs encadeados em interaction_with_stop_time
 6. Validação        — Row counts, samples, distribuições
-7. Salvar           — Comentado por padrão
 ```
 
 ### Regras críticas do join
@@ -148,9 +147,9 @@ Metadados devem respeitar a data do ticket. Se o cliente não era elegível no m
 ### NuCel
 | Tabela | Campos-chave | Metadados |
 |--------|-------------|-----------|
-| `etl.br__dataset.nucel_accounts` | `status`, `last_payment`, `last_suspension_reason`, `current_port_in_finished_at` | `subscription_renewal_date`, `is_nucel_customer`, `nucel_plan_status`, `nucel_line_status`, `nucel_portability_completed_at` |
+| `etl.br__dataset.nucel_accounts` | `status`, `last_payment`, `last_suspension_reason`, `current_port_in_finished_at` | `subscription_renewal_date`, `is_nucel_customer`, `nucel_plan_status`, `nucel_portability_completed_at` |
 | `etl.br__dataset.nucel_current_portability_in` | `status`, `scheduled_to`, `cancellation_reason`, `finished_at` | `nucel_portability_status`, `nucel_scheduled_portability_date`, `nucel_portability_rejection_reason` |
-| `etl.br__dataset.nucel_psim_delivery_details_dashboard` | `delivery__status`, `delivery__created_at`, `delivered_at` | `psim_delivery_status`, `psim_delivery_created_at` |
+| `etl.br__dataset.nucel_psim_delivery_details_dashboard` | `delivery__status`, `delivery__created_at`, `delivered_at` | `psim_delivery_status`, `psim_estimated_delivery_date` |
 
 ### Crypto
 | Tabela | Campos-chave | Metadados |
@@ -174,9 +173,13 @@ Metadados devem respeitar a data do ticket. Se o cliente não era elegível no m
 
 1. **Join duplicando linhas** — Sempre garantir 1 linha por `customer__id` antes do LEFT JOIN (usar `groupBy` ou `row_number`)
 2. **Campos sem respeitar janela temporal** — Metadados de rede/status devem ser `null` se o cliente não era elegível na data do ticket
-3. **Prefixos em valores de status** — Ex: `delivery_status__delivered` ao invés de `delivered`. Verificar valores reais com `DESCRIBE` ou sample
-4. **Metadados da squad vs regras reais** — Seção "Variáveis" do Doc pode estar desalinhada. Sempre priorizar "Regras de avaliação"
-5. **AJIS** — Já existe na Onda 1, não recriar
+3. **Status temporal de portabilidade/cancelamento** — Se `finished_at > ticket_stop_time`, o status final (COMPLETED, CANCELLED) NÃO se aplica ao momento do ticket. Usar status inferido (SCHEDULED se tem data agendada, WAITING_SMS caso contrário)
+4. **Data prevista quando não existe no ETL** — Calcular com base em regra da squad (ex: 6 dias úteis após criação). Fórmula para dias úteis precisa pular sábados e domingos
+5. **Prefixos em valores de status** — Ex: `delivery_status__delivered` ao invés de `delivered`. Verificar valores reais com `DESCRIBE` ou sample
+6. **Metadados da squad vs regras reais** — Seção "Variáveis" do Doc pode estar desalinhada. Sempre priorizar "Regras de avaliação"
+7. **Metadados duplicados** — Se dois metadados retornam a mesma informação (ex: `plan_status` e `line_status`), manter apenas um
+8. **AJIS** — Já existe na Onda 1, não recriar
+9. **Seção Save** — NÃO incluir seção de salvar nos notebooks. Será adicionada conforme necessidade separadamente
 
 ## Databricks CLI
 
