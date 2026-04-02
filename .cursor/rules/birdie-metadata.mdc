@@ -155,7 +155,7 @@ Metadados devem respeitar a data do ticket. Se o cliente não era elegível no m
 ### NuCel
 | Tabela | Campos-chave | Metadados |
 |--------|-------------|-----------|
-| `etl.br__dataset.nucel_accounts` | `status`, `last_payment`, `last_suspension_reason`, `current_port_in_finished_at` | `subscription_renewal_date`, `is_nucel_customer`, `nucel_plan_status`, `nucel_portability_completed_at` |
+| `etl.br__dataset.nucel_accounts` | `status`, `last_payment`, `last_suspension_reason`, `current_port_in_finished_at`, `current_plan_status`, `current_plan_created_at` | `subscription_renewal_date`, `has_active_nucel_plan`, `nucel_plan_status`, `nucel_portability_completed_at` |
 | `etl.br__dataset.nucel_current_portability_in` | `status`, `scheduled_to`, `cancellation_reason`, `finished_at` | `nucel_portability_status`, `nucel_scheduled_portability_date`, `nucel_portability_rejection_reason` |
 | `etl.br__dataset.nucel_psim_delivery_details_dashboard` | `delivery__status`, `delivery__created_at`, `delivered_at` | `psim_delivery_status`, `psim_estimated_delivery_date` |
 
